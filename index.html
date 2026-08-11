@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creed Collective - Knowledge Without Faces</title>
+    <meta name="description" content="Creed Collective: Faceless knowledge lifestyle brand network covering AI, Islamic psychology, data science, and design.">
+    <meta name="theme-color" content="#1F2937">
+    <meta name="color-scheme" content="light">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <style>
+        :root {
+            --color-primary: #3B82F6;
+            --color-bg: #F9FAFB;
+            --color-text: #1F2937;
+            --color-border: #E5E7EB;
+            --color-card: #FFFFFF;
+            --color-shadow: rgba(0, 0, 0, 0.05);
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-sans); background: var(--color-bg); color: var(--color-text); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 1rem; }
+        header { background: var(--color-card); border-bottom: 1px solid var(--color-border); box-shadow: 0 1px 3px var(--color-shadow); padding: 1rem 0; }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 0.5rem; font-size: 1.5rem; font-weight: 700; }
+        .logo .emoji { font-size: 2rem; }
+        nav { display: flex; gap: 1.5rem; }
+        nav a { color: var(--color-text); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        nav a:hover { color: var(--color-primary); }
+        .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(135deg, #1F2937 0%, #3B82F6 100%); color: white; margin-bottom: 3rem; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.25rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+        .credos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
+        .credo-card { background: var(--color-card); border-radius: 12px; padding: 2rem; border: 1px solid var(--color-border); box-shadow: 0 4px 6px var(--color-shadow); transition: transform 0.2s; }
+        .credo-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .credo-card .header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+        .credo-card .emoji { font-size: 2.5rem; }
+        .credo-card .name { font-size: 1.5rem; font-weight: 700; }
+        .credo-card .color-bar { height: 4px; border-radius: 2px; margin: 1rem 0; }
+        .credo-card p { color: #6B7280; margin-bottom: 1rem; }
+        .techcredo .color-bar { background: #3B82F6; }
+        .muslimcredo .color-bar { background: #065F46; }
+        .datacredo .color-bar { background: #059669; }
+        .designcredo .color-bar { background: #D97706; }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .tag { background: var(--color-border); color: var(--color-text); padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.8rem; }
+        .tag.primary { background: var(--color-primary); color: white; }
+        .cta-button { display: inline-block; background: var(--color-primary); color: white; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: background 0.2s; }
+        .cta-button:hover { background: #2563EB; }
+        footer { text-align: center; padding: 2rem 0; color: #9CA3AF; font-size: 0.85rem; }
+        .newsletter-section { text-align: center; padding: 3rem 1rem; background: var(--color-card); border-radius: 12px; border: 1px solid var(--color-border); margin-bottom: 3rem; }
+        .newsletter-section h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .newsletter-section p { color: #6B7280; margin-bottom: 1.5rem; }
+    </style>
+    <script type="application/ld+json">
+    {{
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Creed Collective",
+        "url": "https://creed-collective.com",
+        "description": "Faceless knowledge lifestyle brand network."
+    }}
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo"><span class="emoji">🏛️</span> Creed Collective</div>
+            <nav>
+                <a href="/#credos">Credos</a>
+                <a href="/newsletter">Newsletter</a>
+                <a href="/about">About</a>
+                <a href="https://t.me/+CoeJ9e4vZx45Y2Qy" target="_blank">Telegram</a>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Knowledge. Without Faces.</h1>
+            <p>A faceless knowledge lifestyle brand network covering AI, Islamic psychology, data science, and design.</p>
+        </div>
+    </section>
+    
+    <main class="container">
+        <h2 style="margin-bottom: 1rem;">Our Credos</h2>
+        <p style="color: #6B7280; margin-bottom: 2rem;">Each sub-brand operates independently under the Creed umbrella, delivering focused research and insights.</p>
+        
+        <div class="credos">
+            <div class="credo-card techcredo">
+                <div class="header">
+                    <div class="emoji">💻</div>
+                    <div class="name">TechCredo</div>
+                </div>
+                <div class="color-bar"></div>
+                <p>AI, automation, data tools, and productivity for developers.</p>
+                <div class="tags">
+                    <span class="tag primary">AI</span>
+                    <span class="tag">Automation</span>
+                    <span class="tag">Developer Tools</span>
+                </div>
+                <a href="/techcredo" class="cta-button" style="display: inline-block; margin-top: 1rem;">Explore →</a>
+            </div>
+            
+            <div class="credo-card muslimcredo">
+                <div class="header">
+                    <div class="emoji">🕌</div>
+                    <div class="name">MuslimCredo</div>
+                </div>
+                <div class="color-bar"></div>
+                <p>Islamic psychology, mental health, and spiritual wellness.</p>
+                <div class="tags">
+                    <span class="tag primary">Islamic Psychology</span>
+                    <span class="tag">Mental Health</span>
+                    <span class="tag">Faith</span>
+                </div>
+                <a href="/muslimcredo" class="cta-button" style="display: inline-block; margin-top: 1rem;">Explore →</a>
+            </div>
+            
+            <div class="credo-card datacredo">
+                <div class="header">
+                    <div class="emoji">📊</div>
+                    <div class="name">DataCredo</div>
+                </div>
+                <div class="color-bar"></div>
+                <p>Data science, analytics, visualization, and ML workflows.</p>
+                <div class="tags">
+                    <span class="tag primary">Data Science</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Analytics</span>
+                </div>
+                <a href="/datacredo" class="cta-button" style="display: inline-block; margin-top: 1rem;">Explore →</a>
+            </div>
+            
+            <div class="credo-card designcredo">
+                <div class="header">
+                    <div class="emoji">🎨</div>
+                    <div class="name">DesignCredo</div>
+                </div>
+                <div class="color-bar"></div>
+                <p>UX/UI design, creative tools, accessibility, and web aesthetics.</p>
+                <div class="tags">
+                    <span class="tag primary">Design</span>
+                    <span class="tag">UX</span>
+                    <span class="tag">Accessibility</span>
+                </div>
+                <a href="/designcredo" class="cta-button" style="display: inline-block; margin-top: 1rem;">Explore →</a>
+            </div>
+        </div>
+        
+        <div class="newsletter-section">
+            <h2>📬 Weekly Research Digest</h2>
+            <p>Get a curated summary of research across all Credos delivered to your inbox every Monday.</p>
+            <a href="/newsletter" class="cta-button">Subscribe Now</a>
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2026 Creed Collective. All rights reserved. | Knowledge is power, patterns are truth.</p>
+    </footer>
+</body>
+</html>

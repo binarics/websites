@@ -1,0 +1,39 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "/(.*).html",
+            "use": "@vercel/static"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/",
+            "dest": "/index.html"
+        },
+        {
+            "src": "/techcredo",
+            "dest": "/techcredo_landing.html"
+        },
+        {
+            "src": "/muslimcredo",
+            "dest": "/muslimcredo_landing.html"
+        },
+        {
+            "src": "/datacredo",
+            "dest": "/datacredo_landing.html"
+        },
+        {
+            "src": "/designcredo",
+            "dest": "/designcredo_landing.html"
+        },
+        {
+            "src": "/about",
+            "dest": "/index.html"
+        },
+        {
+            "src": "/newsletter",
+            "dest": "/index.html"
+        }
+    ]
+}
