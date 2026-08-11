@@ -27,7 +27,15 @@
         },
         {
             "src": "/newsletter",
-            "dest": "/index.html"
+            "dest": "/newsletter/index.html"
+        },
+        {
+            "src": "/newsletter/(.*)",
+            "dest": "/newsletter/$1.html"
+        },
+        {
+            "src": "/newsletter/(.*).html",
+            "dest": "/newsletter/$1.html"
         }
     ]
 }
