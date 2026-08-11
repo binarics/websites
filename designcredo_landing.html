@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DesignCredo — UX/UI Design & Creative Tools</title>
-    <meta name="description" content="UX/UI design, creative tools, accessibility, and web aesthetics. Part of Creed Collective.">
+    <meta name="description" content="UX/UI design, creative tools, accessibility, and web aesthetics research. Part of Creed Collective.">
     <meta name="theme-color" content="#d97706">
     <meta name="color-scheme" content="light dark">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <!-- Vercel Analytics -->
     <script>
       window.__vercel_analytics = window.__vercel_analytics || {};
       window.__vercel_analytics.token = 'va_3d0e4d8e0e4d82b2e0e4d8e0e4d8e0e4';
@@ -16,128 +15,125 @@
     <script async src="https://cdn.vercel-analytics.com/script.js"></script>
     <script>
       if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark')
-      } else {
-        document.documentElement.classList.remove('dark')
+        document.documentElement.classList.add('dark');
       }
     </script>
     <style>
         :root {
-          --color-primary: #d97706;
-          --color-primary-dark: #b45309;
-          --color-bg: #ffffff;
-          --color-bg-alt: #f8fafc;
-          --color-text: #0f172a;
-          --color-text-muted: #64748b;
-          --color-border: #e2e8f0;
-          --color-card: #ffffff;
-          --color-card-alt: #f8fafc;
-          --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-          --radius-sm: 6px; --radius: 8px; --radius-lg: 12px; --radius-full: 9999px;
-          --transition: all 0.2s ease;
-          --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-          --gradient: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+          --c-bg: 0 0% 100%; --c-bg-alt: 222.2 84% 98%; --c-bg-card: 0 0% 100%;
+          --c-text: 222.8 8.9% 13.3%; --c-text-muted: 215.4 15.3% 36.1%;
+          --c-text-dim: 215.4 15.3% 55%; --c-border: 214.3 31.8% 94.1%;
+          --c-border-alt: 214.3 31.8% 91.2%;
+          --c-primary: 221.2 83.3% 55.5%; --c-primary-foreground: 0 0% 100%;
+          --c-accent: #d97706; --c-accent-hover: #b45309;
+          --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.03); --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.07);
+          --radius-sm: 0.375rem; --radius: 0.5rem; --radius-lg: 0.75rem; --radius-xl: 1rem; --radius-full: 9999px;
+          --transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
         }
         .dark {
-          --color-bg: #0f172a; --color-bg-alt: #1e293b;
-          --color-text: #f8fafc; --color-text-muted: #94a3b8;
-          --color-border: #334155; --color-card: #1e293b; --color-card-alt: #0f172a;
+          --c-bg: 222.8 8.9% 13.3%; --c-bg-alt: 222.8 8.9% 10%;
+          --c-bg-card: 222.8 8.9% 17.8%; --c-text: 0 0% 100%;
+          --c-text-muted: 215.4 15.3% 55%; --c-border: 215.4 15.3% 25.3%;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font-sans); background: var(--color-bg); color: var(--color-text); line-height: 1.6; }
-        header { position: sticky; top: 0; z-index: 50; background: var(--color-card);
-          border-bottom: 1px solid var(--color-border); backdrop-filter: blur(12px); }
-        .header-container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; height: 64px;
-          display: flex; align-items: center; justify-content: space-between; }
-        .logo { display: flex; align-items: center; gap: 0.5rem; font-size: 1.25rem;
-          font-weight: 700; color: var(--color-text); text-decoration: none; }
-        .logo .emoji { font-size: 1.5rem; }
-        nav { display: flex; align-items: center; gap: 1.5rem; }
-        nav a { color: var(--color-text-muted); text-decoration: none; font-size: 0.875rem;
-          font-weight: 500; transition: var(--transition); }
-        nav a:hover { color: var(--color-primary); }
-        .theme-toggle { background: var(--color-card-alt); border: 1px solid var(--color-border);
-          border-radius: var(--radius-full); padding: 0.5rem; cursor: pointer; }
-        .hero { background: var(--gradient); color: white; padding: 4rem 1.5rem; text-align: center; }
-        .hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
-        .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 640px; margin: 0 auto; }
-        .section { padding: 3rem 1.5rem; max-width: 1200px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 2.5rem; }
-        .section-title { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .section-subtitle { color: var(--color-text-muted); }
-        .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
-        @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr; } }
-        .card { background: var(--color-card); border-radius: var(--radius-lg);
-          border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); padding: 2rem; }
-        .card h2 { font-size: 1.25rem; margin-bottom: 1rem; color: var(--color-primary); }
+        body { font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif; background: hsl(var(--c-bg)); color: hsl(var(--c-text)); line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+        header { position: sticky; top: 0; z-index: 100; background: hsl(var(--c-bg-card) / 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid hsl(var(--c-border)); }
+        .header-container { height: 4rem; display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 0.75rem; font-size: 1.125rem; font-weight: 700; text-decoration: none; color: hsl(var(--c-text)); }
+        .logo .mark { width: 2rem; height: 2rem; border-radius: 0.375rem; background: linear-gradient(135deg, var(--c-accent), #f59e0b); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; }
+        nav { display: flex; align-items: center; gap: 2rem; }
+        nav a { color: hsl(var(--c-text-muted)); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: var(--transition); position: relative; }
+        nav a:hover { color: hsl(var(--c-text)); }
+        nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px; background: var(--c-accent); transform: scaleX(0); transform-origin: right; transition: var(--transition); }
+        nav a:hover::after { transform: scaleX(1); transform-origin: left; }
+        .theme-toggle { background: hsl(var(--c-bg-alt)); border: 1px solid hsl(var(--c-border)); border-radius: var(--radius-full); padding: 0.5rem; cursor: pointer; width: 2.5rem; height: 2.5rem; display: flex; align-items: center; justify-content: center; }
+        .theme-toggle:hover { background: hsl(var(--c-border)); }
+        .hero { background: linear-gradient(135deg, var(--c-accent) 0%, #b45309 50%, #7c2d12 100%); color: white; padding: 5rem 1.5rem; text-align: center; }
+        .hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
+        .hero p { font-size: 1.1rem; opacity: 0.95; max-width: 640px; margin: 0 auto 2rem; }
+        .section { padding: 4rem 0; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; margin-bottom: 0.5rem; }
+        .section-subtitle { color: var(--c-text-muted); font-size: 1.1rem; }
+        @media (min-width: 768px) { .grid-cols-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; } }
+        .card { background: hsl(var(--c-bg-card)); border: 1px solid hsl(var(--c-border)); border-radius: var(--radius-xl); padding: 2rem; box-shadow: var(--shadow-sm); transition: var(--transition); }
+        .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: hsla(35, 80%, 55%, 0.2); }
+        .card h2 { color: var(--c-accent); margin-bottom: 1rem; font-size: 1.25rem; }
         .research-list { list-style: none; }
-        .research-list li { padding: 1rem 0; border-bottom: 1px solid var(--color-border); }
+        .research-list li { border-bottom: 1px solid hsl(var(--c-border)); padding: 1rem 0; }
         .research-list li:last-child { border-bottom: none; }
         .research-list .title { font-weight: 600; margin-bottom: 0.25rem; }
-        .research-list .meta { font-size: 0.85rem; color: var(--color-text-muted); }
-        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
-        .tag { background: var(--color-card-alt); color: var(--color-text-muted);
-          padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 500; }
-        .tag.primary { background: var(--color-primary); color: white; }
-        .cta-button { display: inline-flex; align-items: center; gap: 0.5rem;
-          background: var(--color-primary); color: white; padding: 0.625rem 1.5rem;
-          border-radius: var(--radius); text-decoration: none; font-weight: 600;
-          transition: var(--transition); }
-        .cta-button:hover { background: var(--color-primary-dark); transform: translateY(-1px); }
-        .sidebar-card { background: var(--color-bg-alt); border-radius: var(--radius-lg); padding: 1.5rem; }
+        .research-list .meta { font-size: 0.85rem; color: var(--c-text-muted); }
+        .research-list a { color: var(--c-accent); text-decoration: none; }
+        .research-list a:hover { text-decoration: underline; }
+        .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1rem 0; }
+        .tag { background: hsl(var(--c-bg-alt)); color: hsl(var(--c-text-muted)); padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 500; }
+        .tag.primary { background: var(--c-accent); color: white; }
+        .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--c-accent); color: white; padding: 0.625rem 1.5rem; border-radius: var(--radius-full); text-decoration: none; font-weight: 600; transition: var(--transition); border: none; cursor: pointer; }
+        .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+        .sidebar-card { background: hsl(var(--c-bg-alt)); border-radius: var(--radius-lg); padding: 1.5rem; }
         .sidebar-card h3 { font-size: 1.1rem; margin-bottom: 1rem; }
         .sidebar-card ul { list-style: none; }
-        .sidebar-card li { padding: 0.5rem 0; border-bottom: 1px solid var(--color-border); }
+        .sidebar-card li { padding: 0.5rem 0; border-bottom: 1px solid hsl(var(--c-border)); }
         .sidebar-card li:last-child { border-bottom: none; }
-        .sidebar-card a { color: var(--color-primary); text-decoration: none; }
+        .sidebar-card a { color: var(--c-accent); text-decoration: none; }
         .sidebar-card a:hover { text-decoration: underline; }
-        footer { text-align: center; padding: 2rem 1.5rem; color: var(--color-text-muted);
-          font-size: 0.875rem; border-top: 1px solid var(--color-border); }
+        .newsletter-section { background: var(--c-accent); color: white; border-radius: var(--radius-xl); padding: 3rem; text-align: center; margin-top: 2rem; }
+        .newsletter-section h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .newsletter-section a.btn-primary { background: white; color: var(--c-accent); }
+        footer { border-top: 1px solid hsl(var(--c-border)); padding: 2rem 0; text-align: center; color: var(--c-text-muted); font-size: 0.85rem; }
+        footer a { color: var(--c-accent); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <header>
-        <div class="header-container">
-            <a href="/" class="logo"><span class="emoji">🏛️</span> Creed Collective</a>
-            <nav>
-                <a href="/">Home</a>
-                <a href="/techcredo">TechCredo</a>
-                <a href="/muslimcredo">MuslimCredo</a>
-                <a href="/datacredo">DataCredo</a>
-                <a href="/newsletter">Newsletter</a>
-                <a href="https://t.me/+CoeJ9e4vZx45Y2Qy" target="_blank">Telegram</a>
-                <button class="theme-toggle" id="theme-toggle">🌙</button>
-            </nav>
+        <div class="container">
+            <div class="header-container">
+                <a href="/" class="logo"><span class="mark">🏛️</span> Creed Collective</a>
+                <nav>
+                    <a href="/">Home</a>
+                    <a href="/techcredo">TechCredo</a>
+                    <a href="/muslimcredo">MuslimCredo</a>
+                    <a href="/datacredo">DataCredo</a>
+                    <a href="/newsletter">Newsletter</a>
+                    <a href="https://t.me/+CoeJ9e4vZx45Y2Qy" target="_blank">Telegram</a>
+                    <button class="theme-toggle" id="theme-toggle">🌙</button>
+                </nav>
+            </div>
         </div>
     </header>
-    
+
     <section class="hero">
-        <h1>🎨 DesignCredo</h1>
-        <p>UX/UI design, creative tools, accessibility, and web aesthetics. Part of the Creed Collective knowledge network.</p>
+        <div class="container">
+            <h1>🎨 DesignCredo</h1>
+            <p>UX/UI design, creative tools, accessibility, and web aesthetics research — curated daily.</p>
+        </div>
     </section>
-    
-    <main>
+
+    <main class="container">
         <section class="section">
             <div class="section-header">
                 <h2 class="section-title">Latest Research</h2>
                 <p class="section-subtitle">Curated design trends, UX research, and creative tools</p>
             </div>
-            <div class="content-grid">
+            <div class="grid-cols-2">
                 <div>
                     <div class="card">
                         <h2>Design Resources</h2>
                         <ul class="research-list">
                             <li>
                                 <div class="title">Perception Before Supervision: Self-Contained Visual Distillation</div>
-                                <div class="meta">📅 Aug 11, 2026 • <a href="http://arxiv.org/abs/2608.09930v1" target="_blank" style="color: var(--color-primary);">Read on arXiv →</a></div>
+                                <div class="meta">📅 Aug 11, 2026 • <a href="http://arxiv.org/abs/2608.09930v1" target="_blank">Read on arXiv →</a></div>
                             </li>
                             <li>
                                 <div class="title">Unrolling a Graph-Laplacian Denoiser Realizes Only Compositions of Polynomial Graph Filters</div>
-                                <div class="meta">📅 Aug 11, 2026 • <a href="http://arxiv.org/abs/2608.09923v1" target="_blank" style="color: var(--color-primary);">Read on arXiv →</a></div>
+                                <div class="meta">📅 Aug 11, 2026 • <a href="http://arxiv.org/abs/2608.09923v1" target="_blank">Read on arXiv →</a></div>
                             </li>
                             <li>
                                 <div class="title">Learning How the World Evolves: Extrapolative Video World Models via Latent Dynamics Reasoning</div>
-                                <div class="meta">📅 Aug 11, 2026 • <a href="http://arxiv.org/abs/2608.09926v1" target="_blank" style="color: var(--color-primary);">Read on arXiv →</a></div>
+                                <div class="meta">📅 Aug 11, 2026 • <a href="http://arxiv.org/abs/2608.09926v1" target="_blank">Read on arXiv →</a></div>
                             </li>
                         </ul>
                     </div>
@@ -153,17 +149,23 @@
                         </div>
                     </div>
                     <div class="sidebar-card" style="margin-top: 1rem;">
-                        <h3>📬 Newsletter</h3>
-                        <p>Get weekly design research delivered.</p>
-                        <a href="/newsletter" class="cta-button">Subscribe</a>
+                        <h3>📬 DesignCredo Weekly</h3>
+                        <p>Get weekly design research and UX insights delivered.</p>
+                        <a href="/newsletter/designcredo_newsletter_20260811_201516.html" class="btn-primary">Read Latest →</a>
                     </div>
                 </div>
             </div>
+
+            <div class="newsletter-section">
+                <h2>📬 Subscribe to DesignCredo Weekly</h2>
+                <p>Get curated design research and UX insights delivered every week.</p>
+                <a href="/newsletter/designcredo_newsletter_20260811_201516.html" class="btn-primary">Read This Week's Issue →</a>
+            </div>
         </section>
     </main>
-    
+
     <footer>
-        <p>© 2026 Creed Collective | <a href="/" style="color: var(--color-primary);">← Back to all Credos</a></p>
+        <p>© 2026 Creed Collective | <a href="/">Back to all Credos</a></p>
     </footer>
     <script>
       const toggle = document.getElementById('theme-toggle');
