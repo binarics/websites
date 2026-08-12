@@ -3,86 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DesignCredo — UX/UI Design & Creative Tools</title>
+    <title>🎨 DesignCredo — The Creed of Intentional Creation</title>
     <meta name="description" content="UX/UI design, creative tools, accessibility, and web aesthetics research. Part of Creed Collective.">
     <meta name="theme-color" content="#d97706">
     <meta name="color-scheme" content="light dark">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Vercel Analytics -->
     <script>
       window.__vercel_analytics = window.__vercel_analytics || {};
       window.__vercel_analytics.token = 'va_3d0e4d8e0e4d82b2e0e4d8e0e4d8e0e4';
     </script>
     <script async src="https://cdn.vercel-analytics.com/script.js"></script>
     <script>
-      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-      }
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark');
     </script>
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: hsl(var(--c-bg));
+            color: hsl(var(--c-text));
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-size: 16px;
+        }
         :root {
-          --c-bg: 0 0% 100%; --c-bg-alt: 222.2 84% 98%; --c-bg-card: 0 0% 100%;
-          --c-text: 222.8 8.9% 13.3%; --c-text-muted: 215.4 15.3% 36.1%;
-          --c-text-dim: 215.4 15.3% 55%; --c-border: 214.3 31.8% 94.1%;
-          --c-border-alt: 214.3 31.8% 91.2%;
-          --c-primary: 221.2 83.3% 55.5%; --c-primary-foreground: 0 0% 100%;
-          --c-accent: #d97706; --c-accent-hover: #b45309;
-          --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.03); --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.07);
-          --radius-sm: 0.375rem; --radius: 0.5rem; --radius-lg: 0.75rem; --radius-xl: 1rem; --radius-full: 9999px;
-          --transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+            --c-bg: 0 0% 100%;
+            --c-bg-alt: 222.2 84% 98%;
+            --c-bg-card: 0 0% 100%;
+            --c-text: 222.8 8.9% 13.3%;
+            --c-text-muted: 215.4 15.3% 36.1%;
+            --c-text-dim: 215.4 15.3% 55%;
+            --c-border: 214.3 31.8% 94.1%;
+            --c-border-alt: 214.3 31.8% 91.2%;
+            --c-accent: #d97706;
+            --c-accent-hover: #b4530a;
+            --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.03);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.07);
+            --radius-sm: 0.375rem;
+            --radius: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-full: 9999px;
+            --transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+            --gradient: linear-gradient(135deg, #d97706 0%, #b4530a 50%, #7c2d12 100%);
         }
         .dark {
-          --c-bg: 222.8 8.9% 13.3%; --c-bg-alt: 222.8 8.9% 10%;
-          --c-bg-card: 222.8 8.9% 17.8%; --c-text: 0 0% 100%;
-          --c-text-muted: 215.4 15.3% 55%; --c-border: 215.4 15.3% 25.3%;
+            --c-bg: 222.8 8.9% 13.3%;
+            --c-bg-alt: 222.8 8.9% 10%;
+            --c-bg-card: 222.8 8.9% 17.8%;
+            --c-text: 0 0% 100%;
+            --c-text-muted: 215.4 15.3% 55%;
+            --c-border: 215.4 15.3% 25.3%;
+            --c-border-alt: 215.4 15.3% 21.8%;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif; background: hsl(var(--c-bg)); color: hsl(var(--c-text)); line-height: 1.6; overflow-x: hidden; }
         .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
-        header { position: sticky; top: 0; z-index: 100; background: hsl(var(--c-bg-card) / 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid hsl(var(--c-border)); }
-        .header-container { height: 4rem; display: flex; align-items: center; justify-content: space-between; }
-        .logo { display: flex; align-items: center; gap: 0.75rem; font-size: 1.125rem; font-weight: 700; text-decoration: none; color: hsl(var(--c-text)); }
-        .logo .mark { width: 2rem; height: 2rem; border-radius: 0.375rem; background: linear-gradient(135deg, var(--c-accent), #f59e0b); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; }
+        header {
+            position: sticky; top: 0; z-index: 100;
+            background: hsl(var(--c-bg-card) / 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid hsl(var(--c-border));
+        }
+        .header-container {
+            height: 4rem; display: flex;
+            align-items: center; justify-content: space-between;
+        }
+        .logo {
+            display: flex; align-items: center; gap: 0.75rem;
+            font-size: 1.125rem; font-weight: 700;
+            text-decoration: none; color: hsl(var(--c-text));
+        }
+        .logo .mark {
+            width: 2rem; height: 2rem; border-radius: 0.375rem;
+            background: linear-gradient(135deg, var(--c-accent), #7c2d12);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.25rem;
+        }
         nav { display: flex; align-items: center; gap: 2rem; }
-        nav a { color: hsl(var(--c-text-muted)); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: var(--transition); position: relative; }
+        nav a {
+            color: hsl(var(--c-text-muted));
+            text-decoration: none; font-size: 0.9rem;
+            font-weight: 500; transition: var(--transition);
+            position: relative;
+        }
         nav a:hover { color: hsl(var(--c-text)); }
-        nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px; background: var(--c-accent); transform: scaleX(0); transform-origin: right; transition: var(--transition); }
-        nav a:hover::after { transform: scaleX(1); transform-origin: left; }
-        .theme-toggle { background: hsl(var(--c-bg-alt)); border: 1px solid hsl(var(--c-border)); border-radius: var(--radius-full); padding: 0.5rem; cursor: pointer; width: 2.5rem; height: 2.5rem; display: flex; align-items: center; justify-content: center; }
+        nav a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 100%; height: 2px;
+            background: var(--c-accent);
+            transform: scaleX(0); transform-origin: right;
+            transition: var(--transition);
+        }
+        nav a:hover::after {
+            transform: scaleX(1); transform-origin: left;
+        }
+        .theme-toggle {
+            background: hsl(var(--c-bg-alt));
+            border: 1px solid hsl(var(--c-border));
+            border-radius: var(--radius-full);
+            width: 2.5rem; height: 2.5rem;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: var(--transition);
+            font-size: 1.1rem;
+        }
         .theme-toggle:hover { background: hsl(var(--c-border)); }
-        .hero { background: linear-gradient(135deg, var(--c-accent) 0%, #b45309 50%, #7c2d12 100%); color: white; padding: 5rem 1.5rem; text-align: center; }
-        .hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
-        .hero p { font-size: 1.1rem; opacity: 0.95; max-width: 640px; margin: 0 auto 2rem; }
-        .section { padding: 4rem 0; }
-        .section-header { text-align: center; margin-bottom: 3rem; }
-        .section-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; margin-bottom: 0.5rem; }
-        .section-subtitle { color: var(--c-text-muted); font-size: 1.1rem; }
-        @media (min-width: 768px) { .grid-cols-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; } }
-        .card { background: hsl(var(--c-bg-card)); border: 1px solid hsl(var(--c-border)); border-radius: var(--radius-xl); padding: 2rem; box-shadow: var(--shadow-sm); transition: var(--transition); }
-        .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: hsla(35, 80%, 55%, 0.2); }
-        .card h2 { color: var(--c-accent); margin-bottom: 1rem; font-size: 1.25rem; }
-        .research-list { list-style: none; }
-        .research-list li { border-bottom: 1px solid hsl(var(--c-border)); padding: 1rem 0; }
-        .research-list li:last-child { border-bottom: none; }
-        .research-list .title { font-weight: 600; margin-bottom: 0.25rem; }
-        .research-list .meta { font-size: 0.85rem; color: var(--c-text-muted); }
-        .research-list a { color: var(--c-accent); text-decoration: none; }
-        .research-list a:hover { text-decoration: underline; }
-        .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1rem 0; }
-        .tag { background: hsl(var(--c-bg-alt)); color: hsl(var(--c-text-muted)); padding: 0.25rem 0.75rem; border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 500; }
-        .tag.primary { background: var(--c-accent); color: white; }
-        .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--c-accent); color: white; padding: 0.625rem 1.5rem; border-radius: var(--radius-full); text-decoration: none; font-weight: 600; transition: var(--transition); border: none; cursor: pointer; }
-        .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
-        .sidebar-card { background: hsl(var(--c-bg-alt)); border-radius: var(--radius-lg); padding: 1.5rem; }
-        .sidebar-card h3 { font-size: 1.1rem; margin-bottom: 1rem; }
-        .sidebar-card ul { list-style: none; }
-        .sidebar-card li { padding: 0.5rem 0; border-bottom: 1px solid hsl(var(--c-border)); }
-        .sidebar-card li:last-child { border-bottom: none; }
-        .sidebar-card a { color: var(--c-accent); text-decoration: none; }
-        .sidebar-card a:hover { text-decoration: underline; }
-        .newsletter-section { background: var(--c-accent); color: white; border-radius: var(--radius-xl); padding: 3rem; text-align: center; margin-top: 2rem; }
-        .newsletter-section h2 { font-size: 1.5rem; margin-bottom: 1rem; }
-        .newsletter-section a.btn-primary { background: white; color: var(--c-accent); }
-        footer { border-top: 1px solid hsl(var(--c-border)); padding: 2rem 0; text-align: center; color: var(--c-text-muted); font-size: 0.85rem; }
+        .hero {
+            text-align: center; padding: 4rem 1.5rem;
+            background: var(--gradient); color: white;
+        }
+        .hero h1 {
+            font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .hero .subtitle {
+            font-size: 1.25rem; font-weight: 300;
+            max-width: 640px; margin: 0 auto 2rem;
+        }
+        .section { padding: 3rem 0; }
+        .section-title { text-align: center; margin-bottom: 2rem; }
+        .section-title h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700; margin-bottom: 0.5rem;
+        }
+        .section-title p { color: hsl(var(--c-text-muted)); font-size: 1.1rem; }
+        .features-grid {
+            display: grid; gap: 1.5rem;
+        }
+        @media (min-width: 768px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .features-grid { grid-template-columns: repeat(3, 1fr); } }
+        .feature-card {
+            background: hsl(var(--c-bg-card));
+            border: 1px solid hsl(var(--c-border));
+            border-radius: var(--radius-xl);
+            padding: 2rem; transition: var(--transition);
+            display: flex; flex-direction: column; gap: 1rem; height: 100%;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: hsl(var(--c-border-alt));
+        }
+        .feature-card .icon {
+            width: 3rem; height: 3rem;
+            border-radius: var(--radius-lg);
+            background: linear-gradient(135deg, var(--c-accent), #7c2d12);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+        }
+        .feature-card h3 { font-size: 1.1rem; font-weight: 700; }
+        .feature-card p { color: hsl(var(--c-text-muted)); font-size: 0.9rem; }
+        .newsletter-cta {
+            background: hsl(var(--c-bg-alt));
+            border: 1px solid hsl(var(--c-border));
+            border-radius: var(--radius-xl);
+            padding: 3rem; text-align: center; margin: 2rem 0;
+        }
+        .newsletter-cta h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
+        .newsletter-cta a {
+            background: var(--c-accent); color: #ffffff;
+            padding: 0.75rem 2rem; border-radius: var(--radius-full);
+            text-decoration: none; font-weight: 600;
+            display: inline-block; margin-top: 1rem;
+            transition: var(--transition);
+        }
+        .newsletter-cta a:hover {
+            background: var(--c-accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .credo-grid { display: grid; gap: 1.5rem; }
+        @media (min-width: 768px) { .credo-grid { grid-template-columns: repeat(2, 1fr); } }
+        .credo-card {
+            background: hsl(var(--c-bg-card));
+            border: 1px solid hsl(var(--c-border));
+            border-radius: var(--radius-xl);
+            overflow: hidden; transition: var(--transition);
+            text-decoration: none; color: inherit; display: block;
+        }
+        .credo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .credo-card .top {
+            display: flex; align-items: center;
+            gap: 1rem; padding: 1.25rem 1.75rem 0.75rem;
+        }
+        .credo-card .emoji { font-size: 2rem; }
+        .credo-card .name { font-size: 1.1rem; font-weight: 700; }
+        .credo-card .desc {
+            font-size: 0.85rem; color: hsl(var(--c-text-muted));
+            margin-top: 0.25rem;
+        }
+        .credo-card .badge-row {
+            display: flex; flex-wrap: wrap; gap: 0.4rem;
+            padding: 0 1.75rem 1rem;
+        }
+        .credo-card .pill {
+            background: hsl(var(--c-bg-alt));
+            border: 1px solid hsl(var(--c-border));
+            color: hsl(var(--c-text-muted));
+            font-size: 0.7rem; padding: 0.2rem 0.6rem;
+            border-radius: var(--radius-full);
+        }
+        footer {
+            border-top: 1px solid var(--c-border);
+            padding: 2rem 0; text-align: center;
+            color: hsl(var(--c-text-muted)); font-size: 0.85rem;
+        }
         footer a { color: var(--c-accent); text-decoration: none; }
         footer a:hover { text-decoration: underline; }
     </style>
@@ -97,8 +225,9 @@
                     <a href="/techcredo">TechCredo</a>
                     <a href="/muslimcredo">MuslimCredo</a>
                     <a href="/datacredo">DataCredo</a>
+                    <a href="/designcredo">DesignCredo</a>
                     <a href="/newsletter/">Newsletter</a>
-                    <a href="https://t.me/+CoeJ9e4vZx45Y2Qy" target="_blank">Telegram</a>
+                    <a href="https://t.me/+CoeJ9e4vZx45Y2Qy" target="_blank" rel="noopener noreferrer">Telegram</a>
                     <button class="theme-toggle" id="theme-toggle">🌙</button>
                 </nav>
             </div>
@@ -107,66 +236,118 @@
 
     <section class="hero">
         <div class="container">
-            <h1>🎨 DesignCredo</h1>
-            <p>UX/UI design, creative tools, accessibility, and web aesthetics research — curated daily.</p>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="font-size: 3rem;">🎨</span>
+                <span style="font-size: 1.75rem; font-weight: 700;">DesignCredo</span>
+            </div>
+            <h1>The Creed of Intentional Creation</h1>
+            <p class="subtitle">UX/UI design, creative tools, accessibility, and web aesthetics research</p>
+            <p>Design systems that work, beautifully — grounded in research and built for real users</p>
         </div>
     </section>
 
     <main class="container">
-        <section class="section">
-            <div class="section-header">
-                <h2 class="section-title">Latest Research</h2>
-                <p class="section-subtitle">Curated design trends, UX research, and creative tools</p>
+        <div class="section">
+            <div class="section-title">
+                <h2>Research Focus Areas</h2>
+                <p>The beliefs we're testing, one design decision at a time</p>
             </div>
-            <div class="grid-cols-2">
-                <div>
-                    <div class="card">
-                        <h2>Design Resources</h2>
-                        <ul class="research-list">
-                            <li>
-                                <div class="title">Perception Before Supervision: Self-Contained Visual Distillation</div>
-                                <div class="meta">📅 Aug 11, 2026 • <a href="http://arxiv.org/abs/2608.09930v1" target="_blank">Read on arXiv →</a></div>
-                            </li>
-                            <li>
-                                <div class="title">Unrolling a Graph-Laplacian Denoiser Realizes Only Compositions of Polynomial Graph Filters</div>
-                                <div class="meta">📅 Aug 11, 2026 • <a href="http://arxiv.org/abs/2608.09923v1" target="_blank">Read on arXiv →</a></div>
-                            </li>
-                            <li>
-                                <div class="title">Learning How the World Evolves: Extrapolative Video World Models via Latent Dynamics Reasoning</div>
-                                <div class="meta">📅 Aug 11, 2026 • <a href="http://arxiv.org/abs/2608.09926v1" target="_blank">Read on arXiv →</a></div>
-                            </li>
-                        </ul>
-                    </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">🎯</div>
+                    <h3>Design Systems</h3>
+                    <p>Principles for scalable, maintainable design systems. From component libraries to living style guides — the foundations of consistent user experiences.</p>
                 </div>
-                <div>
-                    <div class="sidebar-card">
-                        <h3>Topics Covered</h3>
-                        <div class="tags">
-                            <span class="tag primary">UX/UI</span>
-                            <span class="tag">Accessibility</span>
-                            <span class="tag">Design Systems</span>
-                            <span class="tag">Web Aesthetics</span>
+                <div class="feature-card">
+                    <div class="icon">♿</div>
+                    <h3>Accessibility</h3>
+                    <p>Building inclusive interfaces that work for everyone. WCAG compliance, inclusive design patterns, and accessibility-first workflows.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🚀</div>
+                    <h3>Web Aesthetics</h3>
+                    <p>The craft of beautiful, functional web interfaces. CSS layout techniques, modern animation patterns, and visual storytelling.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="padding-top: 0;">
+            <div class="section-title">
+                <h2>What You'll Find Here</h2>
+                <p>Curated insights from the field</p>
+            </div>
+            <div style="background: hsl(var(--c-bg-card)); border: 1px solid hsl(var(--c-border)); border-radius: var(--radius-xl); padding: 2rem; margin: 2rem 0;">
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 0.75rem 0; border-bottom: 1px solid hsl(var(--c-border));"><strong>Weekly Newsletter</strong> — Design system case studies, tool reviews, and creative inspiration</li>
+                    <li style="padding: 0.75rem 0; border-bottom: 1px solid hsl(var(--c-border));"><strong>Case Studies</strong> — Deep dives into real design systems from Behance showcases and design-driven companies</li>
+                    <li style="padding: 0.75rem 0; border-bottom: 1px solid hsl(var(--c-border));"><strong>CSS Guides</strong> — Modern layout techniques, from grid and flexbox to container queries and design tokens</li>
+                    <li style="padding: 0.75rem 0;"><strong>Tool Reviews</strong> — Hands-on evaluations of design tools, prototyping software, and creative workflows</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="newsletter-cta">
+            <h2>📬 Read the Latest DesignCredo Review</h2>
+            <p>Design systems evolving beyond static component libraries, Behance fintech dashboard inspiration, and modern CSS layout techniques.</p>
+            <a href="/newsletter/designcredo_newsletter_20260811_213552.html">Read Latest Issue →</a>
+        </div>
+
+        <div class="section">
+            <div class="section-title">
+                <h2>Sister Credos</h2>
+                <p>Other perspectives within the Creed</p>
+            </div>
+            <div class="credo-grid">
+                <a href="/techcredo" class="credo-card">
+                    <div class="top">
+                        <span class="emoji">💻</span>
+                        <div>
+                            <div class="name" style="color: #3b82f6;">TechCredo</div>
+                            <div class="desc">AI, automation, data tools, and productivity for developers</div>
                         </div>
                     </div>
-                    <div class="sidebar-card" style="margin-top: 1rem;">
-                        <h3>📬 DesignCredo Weekly</h3>
-                        <p>Get weekly design research and UX insights delivered.</p>
-                        <a href="/newsletter/designcredo_newsletter_20260811_213552.html" class="btn-primary">Read Latest →</a>
+                    <div class="badge-row">
+                        <span class="pill">AI</span>
+                        <span class="pill">Automation</span>
+                        <span class="pill">Tools</span>
                     </div>
-                </div>
+                </a>
+                <a href="/muslimcredo" class="credo-card">
+                    <div class="top">
+                        <span class="emoji">🕌</span>
+                        <div>
+                            <div class="name" style="color: #059669;">MuslimCredo</div>
+                            <div class="desc">Islamic psychology, mental health, and spiritual wellness</div>
+                        </div>
+                    </div>
+                    <div class="badge-row">
+                        <span class="pill">Psychology</span>
+                        <span class="pill">Wellness</span>
+                        <span class="pill">Faith</span>
+                    </div>
+                </a>
+                <a href="/datacredo" class="credo-card">
+                    <div class="top">
+                        <span class="emoji">📊</span>
+                        <div>
+                            <div class="name" style="color: #0ea5e9;">DataCredo</div>
+                            <div class="desc">Data science, analytics, visualization, and ML workflows</div>
+                        </div>
+                    </div>
+                    <div class="badge-row">
+                        <span class="pill">Data Science</span>
+                        <span class="pill">ML</span>
+                        <span class="pill">Analytics</span>
+                    </div>
+                </a>
             </div>
-
-            <div class="newsletter-section">
-                <h2>📬 Subscribe to DesignCredo Weekly</h2>
-                <p>Get curated design research and UX insights delivered every week.</p>
-                <a href="/newsletter/designcredo_newsletter_20260811_213552.html" class="btn-primary">Read This Week's Issue →</a>
-            </div>
-        </section>
+        </div>
     </main>
 
     <footer>
-        <p>© 2026 Creed Collective | <a href="/">Back to all Credos</a></p>
+        <p>© 2026 Creed Collective. <a href="https://t.me/+CoeJ9e4vZx45Y2Qy" target="_blank" rel="noopener noreferrer">Subscribe via Telegram</a>. Faceless knowledge, delivered.</p>
     </footer>
+
     <script>
       const toggle = document.getElementById('theme-toggle');
       toggle.addEventListener('click', () => {
