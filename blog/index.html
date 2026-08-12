@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Creed Collective</title>
+    <meta name="description" content="The Creed Collective blog — long-form research, guides, and insights across AI, Islamic psychology, data science, and design.">
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="color-scheme" content="light dark">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://creed-collective.vercel.app/blog/">
+    <meta property="og:title" content="The Creed Collective Blog">
+    <meta property="og:description" content="Long-form research and guides across AI, Islamic psychology, data science, and design.">
+    <meta property="og:image" content="https://creed-collective.vercel.app/og-image.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <script>
+      window.__vercel_analytics = window.__vercel_analytics || {};
+      window.__vercel_analytics.token = 'va_3d0e4d8e0e4d82b2e0e4d8e0e4d8e0e4';
+    </script>
+    <script async src="https://cdn.vercel-analytics.com/script.js"></script>
+    <script>
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+    <style>
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: hsl(var(--c-bg));
+            color: hsl(var(--c-text));
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-size: 16px;
+        }
+        :root {
+            --c-bg: 0 0% 100%;
+            --c-bg-alt: 222.2 84% 98%;
+            --c-bg-card: 0 0% 100%;
+            --c-text: 222.8 8.9% 13.3%;
+            --c-text-muted: 215.4 15.3% 36.1%;
+            --c-text-dim: 215.4 15.3% 55%;
+            --c-border: 214.3 31.8% 94.1%;
+            --c-border-alt: 214.3 31.8% 91.2%;
+            --c-accent: #3b82f6;
+            --c-accent-hover: #2563eb;
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.07);
+            --radius: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-full: 9999px;
+            --transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+        }
+        .dark {
+            --c-bg: 222.8 8.9% 13.3%;
+            --c-bg-alt: 222.8 8.9% 10%;
+            --c-bg-card: 222.8 8.9% 17.8%;
+            --c-text: 0 0% 100%;
+            --c-text-muted: 215.4 15.3% 55%;
+            --c-border: 215.4 15.3% 25.3%;
+            --c-border-alt: 215.4 15.3% 21.8%;
+        }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+        header {
+            position: sticky; top: 0; z-index: 100;
+            background: hsl(var(--c-bg-card) / 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid hsl(var(--c-border));
+        }
+        .header-container {
+            height: 4rem; display: flex;
+            align-items: center; justify-content: space-between;
+        }
+        .logo {
+            display: flex; align-items: center; gap: 0.75rem;
+            font-size: 1.125rem; font-weight: 700;
+            text-decoration: none; color: hsl(var(--c-text));
+        }
+        .logo .mark {
+            width: 2rem; height: 2rem; border-radius: 0.375rem;
+            background: linear-gradient(135deg, var(--c-accent), #7c3aed);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.25rem;
+        }
+        nav { display: flex; align-items: center; gap: 2rem; }
+        nav a {
+            color: hsl(var(--c-text-muted));
+            text-decoration: none; font-size: 0.9rem;
+            font-weight: 500; transition: var(--transition);
+            position: relative;
+        }
+        nav a:hover { color: hsl(var(--c-text)); }
+        nav a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 100%; height: 2px;
+            background: var(--c-accent);
+            transform: scaleX(0); transform-origin: right;
+            transition: var(--transition);
+        }
+        nav a:hover::after { transform: scaleX(1); transform-origin: left; }
+        .theme-toggle {
+            background: hsl(var(--c-bg-alt));
+            border: 1px solid hsl(var(--c-border));
+            border-radius: var(--radius-full);
+            width: 2.5rem; height: 2.5rem;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: var(--transition);
+        }
+        .theme-toggle:hover { background: hsl(var(--c-border)); }
+
+        .hero {
+            text-align: center; padding: 4rem 1.5rem;
+            background: linear-gradient(135deg, #1e293b 0%, #3b82f6 50%, #1e293b 100%);
+            color: white;
+        }
+        .hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
+        .hero p { font-size: 1.1rem; opacity: 0.95; max-width: 640px; margin: 0 auto 2rem; }
+        .section { padding: 3rem 0; }
+        .post-grid { display: grid; gap: 2rem; }
+        @media (min-width: 768px) { .post-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .post-grid { grid-template-columns: repeat(3, 1fr); } }
+        .post-card {
+            background: hsl(var(--c-bg-card));
+            border: 1px solid hsl(var(--c-border));
+            border-radius: var(--radius-xl);
+            padding: 1.75rem; transition: var(--transition);
+            display: flex; flex-direction: column; gap: 1rem; height: 100%;
+        }
+        .post-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .post-card .emoji { font-size: 2rem; }
+        .post-card h3 { font-size: 1.1rem; font-weight: 700; }
+        .post-card p { font-size: 0.85rem; color: hsl(var(--c-text-muted)); }
+        .post-card .read { color: var(--c-accent); font-weight: 600; text-decoration: none; }
+        .post-card .read:hover { transform: translateX(3px); display: inline-block; }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <a href="/" class="logo"><span class="mark">🏛️</span> Creed Collective</a>
+                <nav>
+                    <a href="/">Home</a>
+                    <a href="/techcredo">TechCredo</a>
+                    <a href="/muslimcredo">MuslimCredo</a>
+                    <a href="/datacredo">DataCredo</a>
+                    <a href="/designcredo">DesignCredo</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/newsletter/">Newsletter</a>
+                    <a href="/sponsors">Sponsors</a>
+                    <a href="https://t.me/+CoeJ9e4vZx45Y2Qy" target="_blank" rel="noopener noreferrer">Telegram</a>
+                    <button class="theme-toggle" id="theme-toggle">🌙</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>📝 The Creed Collective Blog</h1>
+            <p>Long-form research, guides, and insights across AI, Islamic psychology, data science, and design — all from our automated research pipeline.</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="section">
+            <div class="post-grid">
+
+        <div class="post-card">
+            <div class="top" style="display: flex; align-items: center; gap: 1rem;">
+                <span class="emoji">📊</span>
+                <div>
+                    <h3>From Raw Data to Insights</h3>
+                    <p style="color: hsl(var(--c-text-muted)); font-size: 0.9rem; margin-top: 0.25rem;">...</p>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="date" style="font-size: 0.8rem; color: hsl(var(--c-text-dim));">📅 2026-08-12</span>
+                <a href="/blog/from-raw-data-to-insights.html" class="read">Read →</a>
+            </div>
+        </div>
+        <div class="post-card">
+            <div class="top" style="display: flex; align-items: center; gap: 1rem;">
+                <span class="emoji">🎨</span>
+                <div>
+                    <h3>Design Systems at Scale</h3>
+                    <p style="color: hsl(var(--c-text-muted)); font-size: 0.9rem; margin-top: 0.25rem;">...</p>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="date" style="font-size: 0.8rem; color: hsl(var(--c-text-dim));">📅 2026-08-12</span>
+                <a href="/blog/design-systems-at-scale.html" class="read">Read →</a>
+            </div>
+        </div>
+        <div class="post-card">
+            <div class="top" style="display: flex; align-items: center; gap: 1rem;">
+                <span class="emoji">🕌</span>
+                <div>
+                    <h3>Faith and Psychology Integration</h3>
+                    <p style="color: hsl(var(--c-text-muted)); font-size: 0.9rem; margin-top: 0.25rem;">...</p>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="date" style="font-size: 0.8rem; color: hsl(var(--c-text-dim));">📅 2026-08-12</span>
+                <a href="/blog/faith-and-psychology-integration.html" class="read">Read →</a>
+            </div>
+        </div>
+        <div class="post-card">
+            <div class="top" style="display: flex; align-items: center; gap: 1rem;">
+                <span class="emoji">💻</span>
+                <div>
+                    <h3>Building Your First AI Agent Team</h3>
+                    <p style="color: hsl(var(--c-text-muted)); font-size: 0.9rem; margin-top: 0.25rem;">...</p>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="date" style="font-size: 0.8rem; color: hsl(var(--c-text-dim));">📅 2026-08-12</span>
+                <a href="/blog/building-your-first-ai-agent-team.html" class="read">Read →</a>
+            </div>
+        </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Creed Collective. Faceless knowledge, delivered.</p>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById('theme-toggle');
+      toggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        toggle.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+      });
+    </script>
+</body>
+</html>

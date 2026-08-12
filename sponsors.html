@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤝 Sponsors — Creed Collective</title>
+    <meta name="description" content="Partner with Creed Collective. Support independent research across AI, Islamic psychology, data science, and design.">
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="color-scheme" content="light dark">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Vercel Analytics -->
+    <script>
+      window.__vercel_analytics = window.__vercel_analytics || {};
+      window.__vercel_analytics.token = 'va_3d0e4d8e0e4d82b2e0e4d8e0e4d8e0e4';
+    </script>
+    <script async src="https://cdn.vercel-analytics.com/script.js"></script>
+    <script>
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: hsl(var(--c-bg));
+            color: hsl(var(--c-text));
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-size: 16px;
+        }
+        :root {
+            --c-bg: 0 0% 100%;
+            --c-bg-alt: 222.2 84% 98%;
+            --c-bg-card: 0 0% 100%;
+            --c-text: 222.8 8.9% 13.3%;
+            --c-text-muted: 215.4 15.3% 36.1%;
+            --c-text-dim: 215.4 15.3% 55%;
+            --c-border: 214.3 31.8% 94.1%;
+            --c-border-alt: 214.3 31.8% 91.2%;
+            --c-accent: #3b82f6;
+            --c-accent-hover: #2563eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.03);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.07);
+            --radius-sm: 0.375rem;
+            --radius: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-full: 9999px;
+            --transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+        }
+        .dark {
+            --c-bg: 222.8 8.9% 13.3%;
+            --c-bg-alt: 222.8 8.9% 10%;
+            --c-bg-card: 222.8 8.9% 17.8%;
+            --c-text: 0 0% 100%;
+            --c-text-muted: 215.4 15.3% 55%;
+            --c-border: 215.4 15.3% 25.3%;
+            --c-border-alt: 215.4 15.3% 21.8%;
+        }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+        header {
+            position: sticky; top: 0; z-index: 100;
+            background: hsl(var(--c-bg-card) / 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid hsl(var(--c-border));
+        }
+        .header-container {
+            height: 4rem; display: flex;
+            align-items: center; justify-content: space-between;
+        }
+        .logo {
+            display: flex; align-items: center; gap: 0.75rem;
+            font-size: 1.125rem; font-weight: 700;
+            text-decoration: none; color: hsl(var(--c-text));
+        }
+        .logo .mark {
+            width: 2rem; height: 2rem; border-radius: 0.375rem;
+            background: linear-gradient(135deg, var(--c-accent), #7c3aed);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.25rem;
+        }
+        nav { display: flex; align-items: center; gap: 2rem; }
+        nav a {
+            color: hsl(var(--c-text-muted));
+            text-decoration: none; font-size: 0.9rem;
+            font-weight: 500; transition: var(--transition);
+            position: relative;
+        }
+        nav a:hover { color: hsl(var(--c-text)); }
+        nav a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 100%; height: 2px;
+            background: var(--c-accent);
+            transform: scaleX(0); transform-origin: right;
+            transition: var(--transition);
+        }
+        nav a:hover::after {
+            transform: scaleX(1); transform-origin: left;
+        }
+        .theme-toggle {
+            background: hsl(var(--c-bg-alt));
+            border: 1px solid hsl(var(--c-border));
+            border-radius: var(--radius-full);
+            width: 2.5rem; height: 2.5rem;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: var(--transition);
+            font-size: 1.1rem;
+        }
+        .theme-toggle:hover { background: hsl(var(--c-border)); }
+        .hero {
+            text-align: center; padding: 5rem 1.5rem;
+            background: linear-gradient(135deg, #1e293b 0%, #3b82f6 50%, #7c3aed 100%);
+            color: white;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800; margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.1rem; opacity: 0.95;
+            max-width: 640px; margin: 0 auto 2rem;
+        }
+        .section { padding: 3rem 0; }
+        .section-title h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700; margin-bottom: 0.5rem;
+        }
+        .section-title p {
+            color: hsl(var(--c-text-muted)); font-size: 1.1rem;
+        }
+        .tier-grid {
+            display: grid; gap: 2rem;
+        }
+        @media (min-width: 768px) { .tier-grid { grid-template-columns: repeat(3, 1fr); } }
+        .tier-card {
+            background: hsl(var(--c-bg-card));
+            border: 2px solid hsl(var(--c-border));
+            border-radius: var(--radius-xl);
+            padding: 2.5rem; text-align: center;
+            transition: var(--transition);
+            display: flex; flex-direction: column; gap: 1rem;
+        }
+        .tier-card.popular {
+            border-color: var(--c-accent);
+            transform: scale(1.02);
+        }
+        .tier-card.popular:hover { transform: scale(1.03); }
+        .tier-card h3 {
+            font-size: 1.25rem; font-weight: 700;
+        }
+        .tier-card .price {
+            font-size: 2rem; font-weight: 800;
+            color: var(--c-accent);
+        }
+        .tier-card .badge {
+            display: inline-block;
+            background: var(--c-accent); color: #ffffff;
+            padding: 0.25rem 0.75rem; border-radius: var(--radius-full);
+            font-size: 0.75rem; font-weight: 600;
+        }
+        .tier-card ul {
+            list-style: none; padding: 0; text-align: left;
+        }
+        .tier-card li {
+            padding: 0.5rem 0; border-bottom: 1px solid hsl(var(--c-border));
+        }
+        .tier-card li:last-child { border-bottom: none; }
+        .tier-card .cta {
+            background: var(--c-accent); color: #ffffff;
+            padding: 0.75rem 2rem; border-radius: var(--radius-full);
+            text-decoration: none; font-weight: 600;
+            transition: var(--transition); margin-top: auto;
+        }
+        .tier-card .cta:hover {
+            background: var(--c-accent-hover);
+            transform: translateY(-1px);
+        }
+        .contact-section {
+            background: hsl(var(--c-bg-alt));
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+        }
+        .contact-section h2 {
+            font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;
+        }
+        .contact-section p { color: hsl(var(--c-text-muted)); }
+        .partners-grid {
+            display: flex; flex-wrap: wrap; gap: 2rem;
+            justify-content: center; align-items: center; opacity: 0.7;
+        }
+        footer {
+            border-top: 1px solid var(--c-border);
+            padding: 2rem 0; text-align: center;
+            color: hsl(var(--c-text-muted)); font-size: 0.85rem;
+        }
+        footer a { color: var(--c-accent); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <a href="/" class="logo"><span class="mark">🏛️</span> Creed Collective</a>
+                <nav>
+                    <a href="/">Home</a>
+                    <a href="/techcredo">TechCredo</a>
+                    <a href="/muslimcredo">MuslimCredo</a>
+                    <a href="/datacredo">DataCredo</a>
+                    <a href="/designcredo">DesignCredo</a>
+                    <a href="/newsletter/">Newsletter</a>
+                    <a href="/sponsors">Sponsors</a>
+                    <a href="https://t.me/+CoeJ9e4vZx45Y2Qy" target="_blank" rel="noopener noreferrer">Telegram</a>
+                    <button class="theme-toggle" id="theme-toggle">🌙</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>🤝 Partner With Creed Collective</h1>
+            <p>Bring your tools, resources, and expertise to a curated audience of builders, researchers, designers, and thinkers across AI, Islamic psychology, data science, and design.</p>
+        </div>
+    </section>
+
+    <main>
+        <div class="container">
+            <div class="section" style="text-align: center;">
+                <div class="section-title">
+                    <h2>Partnership Tiers</h2>
+                    <p>Choose the right level of visibility for your brand</p>
+                </div>
+                <div class="tier-grid">
+                    <div class="tier-card">
+                        <h3>Bronze</h3>
+                        <div class="price">$500/mo</div>
+                        <span class="badge">Startup Friendly</span>
+                        <ul>
+                            <li>Newsletter mention</li>
+                            <li>Sponsor listing on website</li>
+                            <li>Logo in footer</li>
+                        </ul>
+                        <a href="https://t.me/+CoeJ9e4vZx45Y2Qy" target="_blank" rel="noopener noreferrer" class="cta">Get Bronze →</a>
+                    </div>
+                    <div class="tier-card popular">
+                        <h3>Silver</h3>
+                        <div class="price">$1,000/mo</div>
+                        <span class="badge">Most Popular</span>
+                        <ul>
+                            <li>All Bronze benefits</li>
+                            <li>Featured newsletter placement</li>
+                            <li>Landing page badge</li>
+                            <li>Telegram mention</li>
+                        </ul>
+                        <a href="https://t.me/+CoeJ9e4vZx45Y2Qy" target="_blank" rel="noopener noreferrer" class="cta">Get Silver →</a>
+                    </div>
+                    <div class="tier-card">
+                        <h3>Gold</h3>
+                        <div class="price">$2,500/mo</div>
+                        <span class="badge">Premium</span>
+                        <ul>
+                            <li>All Silver benefits</li>
+                            <li>Featured article per quarter</li>
+                            <li>Dedicated Telegram post</li>
+                            <li>Logo in header</li>
+                        </ul>
+                        <a href="https://t.me/+CoeJ9e4vZx45Y2Qy" target="_blank" rel="noopener noreferrer" class="cta">Get Gold →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" style="text-align: center;">
+                <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem;">Placement Opportunities</h2>
+                <div style="display: grid; gap: 1.5rem; max-width: 640px; margin: 0 auto;">
+                    <div style="padding: 1.5rem; background: hsl(var(--c-bg-card)); border: 1px solid hsl(var(--c-border)); border-radius: var(--radius-lg); text-align: left;">
+                        <strong>Newsletter Inclusion</strong>
+                        <p style="color: hsl(var(--c-text-muted)); font-size: 0.9rem; margin-top: 0.5rem;">Featured tool/resource spot in weekly newsletters reaching 4 Credo audiences.</p>
+                    </div>
+                    <div style="padding: 1.5rem; background: hsl(var(--c-bg-card)); border: 1px solid hsl(var(--c-border)); border-radius: var(--radius-lg); text-align: left;">
+                        <strong>Landing Page Badge</strong>
+                        <p style="color: hsl(var(--c-text-muted)); font-size: 0.9rem; margin-top: 0.5rem;">Sponsor badge on relevant Credo landing pages with direct link to your product.</p>
+                    </div>
+                    <div style="padding: 1.5rem; background: hsl(var(--c-bg-card)); border: 1px solid hsl(var(--c-border)); border-radius: var(--radius-lg); text-align: left;">
+                        <strong>Blog Feature Article</strong>
+                        <p style="color: hsl(var(--c-text-muted)); font-size: 0.9rem; margin-top: 0.5rem;">Quarterly guest post highlighting your tool or methodology.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" style="text-align: center;">
+                <div class="contact-section">
+                    <h2>Ready to Partner?</h2>
+                    <p>Contact us on Telegram to discuss custom partnership arrangements and receive a media kit.</p>
+                    <p style="margin-top: 1rem;">
+                        <a href="https://t.me/+CoeJ9e4vZx45Y2Qy" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: var(--c-accent); color: #ffffff; padding: 0.75rem 2rem; border-radius: var(--radius-full); text-decoration: none; font-weight: 600; transition: var(--transition);">Reach Out Now →</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Creed Collective. Faceless knowledge, delivered. <span style="color: hsl(var(--c-text-muted));">We participate in affiliate programs. As an affiliate, I may earn from qualifying purchases.</span></p>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById('theme-toggle');
+      toggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        toggle.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+      });
+    </script>
+</body>
+</html>

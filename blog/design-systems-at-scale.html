@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 Design Systems at Scale — DesignCredo Blog</title>
+    <meta name="description" content="">
+    <meta name="author" content="Creed Collective">
+    <meta name="theme-color" content="#d97706">
+    <meta name="color-scheme" content="light dark">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://creed-collective.vercel.app/blog/design-systems-at-scale.html">
+    <meta property="og:title" content="Design Systems at Scale">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://creed-collective.vercel.app/og-image.png">
+    <meta property="og:url" content="https://creed-collective.vercel.app/blog/design-systems-at-scale.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-08-12T11:33:42">
+    <meta name="twitter:card" content="summary_large_image">
+    <script>
+      window.__vercel_analytics = window.__vercel_analytics || {};
+      window.__vercel_analytics.token = 'va_3d0e4d8e0e4d82b2e0e4d8e0e4d8e0e4';
+    </script>
+    <script async src="https://cdn.vercel-analytics.com/script.js"></script>
+    <script>
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+    <style>
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: hsl(var(--c-bg));
+            color: hsl(var(--c-text));
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-size: 16px;
+        }
+        :root {
+            --c-bg: 0 0% 100%;
+            --c-bg-alt: 222.2 84% 98%;
+            --c-bg-card: 0 0% 100%;
+            --c-text: 222.8 8.9% 13.3%;
+            --c-text-muted: 215.4 15.3% 36.1%;
+            --c-text-dim: 215.4 15.3% 55%;
+            --c-border: 214.3 31.8% 94.1%;
+            --c-border-alt: 214.3 31.8% 91.2%;
+            --c-accent: #d97706;
+            --c-accent-hover: #b45309;
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.07);
+            --radius: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-full: 9999px;
+            --transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+        }
+        .dark {
+            --c-bg: 222.8 8.9% 13.3%;
+            --c-bg-alt: 222.8 8.9% 10%;
+            --c-bg-card: 222.8 8.9% 17.8%;
+            --c-text: 0 0% 100%;
+            --c-text-muted: 215.4 15.3% 55%;
+            --c-border: 215.4 15.3% 25.3%;
+            --c-border-alt: 215.4 15.3% 21.8%;
+        }
+        --gradient: linear-gradient(135deg, #d97706 0%, #b45309 50%, #ea580c 100%);
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+        header {
+            position: sticky; top: 0; z-index: 100;
+            background: hsl(var(--c-bg-card) / 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid hsl(var(--c-border));
+        }
+        .header-container {
+            height: 4rem; display: flex;
+            align-items: center; justify-content: space-between;
+        }
+        .logo {
+            display: flex; align-items: center; gap: 0.75rem;
+            font-size: 1.125rem; font-weight: 700;
+            text-decoration: none; color: hsl(var(--c-text));
+        }
+        .logo .mark {
+            width: 2rem; height: 2rem; border-radius: 0.375rem;
+            background: linear-gradient(135deg, var(--c-accent), #7c3aed);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.25rem;
+        }
+        nav { display: flex; align-items: center; gap: 2rem; }
+        nav a {
+            color: hsl(var(--c-text-muted));
+            text-decoration: none; font-size: 0.9rem;
+            font-weight: 500; transition: var(--transition);
+            position: relative;
+        }
+        nav a:hover { color: hsl(var(--c-text)); }
+        nav a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 100%; height: 2px;
+            background: var(--c-accent);
+            transform: scaleX(0); transform-origin: right;
+            transition: var(--transition);
+        }
+        nav a:hover::after { transform: scaleX(1); transform-origin: left; }
+        .theme-toggle {
+            background: hsl(var(--c-bg-alt));
+            border: 1px solid hsl(var(--c-border));
+            border-radius: var(--radius-full);
+            width: 2.5rem; height: 2.5rem;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: var(--transition);
+        }
+        .theme-toggle:hover { background: hsl(var(--c-border)); }
+
+        .blog-hero {
+            text-align: center; padding: 4rem 1.5rem;
+            background: var(--gradient); color: white;
+        }
+        .blog-hero h1 {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 800; margin-bottom: 1rem;
+        }
+        .blog-hero .meta {
+            display: flex; align-items: center; gap: 1rem;
+            justify-content: center; opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        .blog-hero .meta .badge {
+            background: rgba(0,0,0,0.2);
+            padding: 0.2rem 0.75rem; border-radius: var(--radius-full);
+            font-size: 0.8rem;
+        }
+        .blog-content {
+            max-width: 800px; margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        .blog-content h1 { color: var(--c-accent); margin: 1rem 0; font-size: 1.5rem; }
+        .blog-content h2 { color: var(--c-accent); margin: 1.5rem 0 0.75rem; border-bottom: 2px solid var(--c-border); padding-bottom: 0.25rem; }
+        .blog-content h3 { color: var(--c-text); margin: 1rem 0 0.5rem; font-weight: 600; }
+        .blog-content p { margin: 1rem 0; }
+        .blog-content ul { padding-left: 1.5rem; margin: 0.75rem 0; }
+        .blog-content li { margin-bottom: 0.3rem; }
+        .blog-content a { color: var(--c-accent); }
+        .blog-content code {
+            background: #F3F4F6; padding: 0.125rem 0.375rem;
+            border-radius: 4px; font-size: 0.9em;
+            font-family: 'Fira Code', 'Fira Mono', 'Courier New', monospace;
+        }
+        .blog-content pre {
+            background: #1F2937; color: #F9FAFB;
+            padding: 1rem; border-radius: var(--radius-lg);
+            overflow-x: auto; margin: 1rem 0;
+        }
+        .blog-content pre code {
+            background: none; padding: 0; font-size: 0.85em;
+        }
+        .blog-content blockquote {
+            border-left: 3px solid var(--c-accent);
+            padding: 1rem 1.5rem; margin: 1.5rem 0;
+            background: hsl(var(--c-bg-alt)); font-style: italic;
+        }
+        .blog-content img {
+            max-width: 100%; height: auto;
+            border-radius: var(--radius-lg); margin: 1rem 0;
+        }
+        .blog-content table {
+            width: 100%; border-collapse: collapse; margin: 1rem 0;
+        }
+        .blog-content th, .blog-content td {
+            border: 1px solid var(--c-border);
+            padding: 0.5rem; text-align: left;
+        }
+        .blog-content th { background: hsl(var(--c-bg-alt)); }
+        .social-sharing {
+            max-width: 800px; margin: 3rem auto; text-align: center;
+        }
+        .social-sharing .buttons {
+            display: flex; gap: 1rem; justify-content: center;
+            flex-wrap: wrap; margin-top: 1rem;
+        }
+        .social-sharing a {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.5rem 1rem; border-radius: var(--radius-full);
+            text-decoration: none; font-size: 0.85rem; font-weight: 500;
+            transition: var(--transition);
+        }
+        .subscribe-cta {
+            text-align: center; margin: 4rem 0; padding: 3rem;
+            background: linear-gradient(135deg, var(--c-accent), var(--c-accent-hover));
+            border-radius: var(--radius-xl); color: #ffffff;
+        }
+        .subscribe-cta a {
+            background: #ffffff; color: var(--c-accent);
+            padding: 0.75rem 2rem; border-radius: var(--radius-full);
+            text-decoration: none; font-weight: 600; margin-top: 1rem;
+            display: inline-block;
+        }
+        .disclosure {
+            text-align: center; margin-top: 3rem; padding: 1rem;
+            border-top: 1px solid var(--c-border);
+        }
+        .disclosure p {
+            font-size: 0.75rem; color: hsl(var(--c-text-muted));
+        }
+        footer {
+            border-top: 1px solid var(--c-border);
+            padding: 2rem 0; text-align: center;
+            color: hsl(var(--c-text-muted)); font-size: 0.85rem;
+        }
+        footer a { color: var(--c-accent); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <a href="/" class="logo"><span class="mark">🏛️</span> Creed Collective</a>
+                <nav>
+                    <a href="/">Home</a>
+                    <a href="/techcredo">TechCredo</a>
+                    <a href="/muslimcredo">MuslimCredo</a>
+                    <a href="/datacredo">DataCredo</a>
+                    <a href="/designcredo">DesignCredo</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/newsletter/">Newsletter</a>
+                    <a href="/sponsors">Sponsors</a>
+                    <a href="https://t.me/+CoeJ9e4vZx45Y2Qy" target="_blank" rel="noopener noreferrer">Telegram</a>
+                    <button class="theme-toggle" id="theme-toggle">🌙</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="blog-hero" style="background: linear-gradient(135deg, #d97706 0%, #b45309 50%, #ea580c 100%);">
+        <div class="container">
+            <div class="meta">
+                <span class="badge">🎨 DesignCredo</span>
+                <span role="img">📅 2026-08-12</span>
+            </div>
+            <h1>Design Systems at Scale</h1>
+            <p class="subtitle" style="font-size: 1.25rem; font-weight: 300; max-width: 640px; margin: 0 auto 2rem;"></p>
+        </div>
+    </section>
+
+    <main>
+        <div class="blog-content">
+<h1>Design Systems at Scale</h1>
+<p>Design systems are more than component libraries — they're organizational frameworks for consistent, scalable design. This article explores best practices from companies like Stripe, Linear, and Vercel.</p>
+<h2>Core Principles</h2>
+<h3>1. Design Tokens</h3>
+<p>Tokens centralize design decisions (colors, spacing, typography):</p>
+<pre><code class="language-:root {">
+  --c-accent: #3b82f6;
+  --c-accent-hover: #2563eb;
+  --radius-full: 9999px;
+}
+</code></pre>
+<h3>2. Component Architecture</h3>
+<p>Follow atomic design principles:</p>
+<ul>
+<li><strong>Atoms</strong> — basic elements (button, input)</li>
+<li><strong>Molecules</strong> — grouped atoms (search bar)</li>
+<li><strong>Organisms</strong> — complex sections (header, footer)</li>
+</ul>
+<h2>Real-World Examples</h2>
+<h3>shadcn/fintech Dashboard</h3>
+<p>The <a href="https://github.com/abderrahimghazali/shadcn-fintech">shadcn-fintech dashboard</a> demonstrates modern design patterns:</p>
+<ul>
+<li>Glassmorphism containers</li>
+<li>Gradient hero sections</li>
+<li>Responsive card grids</li>
+<li>Dark mode support</li>
+</ul>
+<h3>Figma Community Patterns</h3>
+<p>Figma's Community offers thousands of free design system templates:</p>
+<p>1. Search for "design system" in Figma Community</p>
+<p>2. Duplicate the file</p>
+<p>3. Customize tokens for your brand</p>
+<p>4. Publish components</p>
+<h2>Accessibility at Scale</h2>
+<h3>Color Contrast</h3>
+<p>Use tools like:</p>
+<ul>
+<li><strong>WCAG Contrast Checker</strong></li>
+<li><strong>Accessible Color Palette Builder</strong></li>
+</ul>
+<h3>Keyboard Navigation</h3>
+<p>Ensure all interactive elements are keyboard-accessible:</p>
+<ul>
+<li>Focus states for all buttons</li>
+<li>Logical tab order</li>
+<li>Skip-to-content links</li>
+</ul>
+<h2>Recommended Tools</h2>
+<ul>
+<li><strong>Figma</strong> — collaborative design tool</li>
+<li><strong>Smashing Magazine</strong> — design best practices</li>
+<li><strong>Awwwards</strong> — design inspiration gallery</li>
+</ul>
+<p><strong>Sponsored</strong>: Check out <a href="https://figma.com/community">Figma Community</a> for free design resources and templates.</p>
+<h2>Implementation Checklist</h2>
+<ul>
+<li>[ ] Design tokens defined</li>
+<li>[ ] Component library documented</li>
+<li>[ ] Accessibility audit completed</li>
+<li>[ ] Dark mode implemented</li>
+<li>[ ] Responsive breakpoints defined</li>
+</ul>
+<p><em>As an affiliate, I may earn from qualifying purchases. All tools are independently evaluated.</em></p>
+        </div>
+
+
+        <div class="social-sharing">
+            <p style="color: hsl(var(--c-text-muted)); font-size: 0.9rem;">Share this article:</p>
+            <div class="buttons">
+                <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fcreed-collective.vercel.app%2Fblog%2Fdesign-systems-at-scale.html&text=Design%20Systems%20at%20Scale%20%E2%80%94%20DesignCredo%20Blog" target="_blank" rel="noopener noreferrer" style="background: #1DA1F2; color: #ffffff;">🐦 X / Twitter</a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fcreed-collective.vercel.app%2Fblog%2Fdesign-systems-at-scale.html" target="_blank" rel="noopener noreferrer" style="background: #0A66C2; color: #ffffff;">💼 LinkedIn</a>
+                <a href="https://t.me/share/url?url=https%3A%2F%2Fcreed-collective.vercel.app%2Fblog%2Fdesign-systems-at-scale.html&text=Design%20Systems%20at%20Scale%20%E2%80%94%20DesignCredo%20Blog" target="_blank" rel="noopener noreferrer" style="background: #0088CC; color: #ffffff;">✈️ Telegram</a>
+            </div>
+        </div>
+
+        <!-- Subscribe CTA -->
+        <div class="subscribe-cta">
+            <h2>📬 Join the Creed Collective</h2>
+            <p>Get weekly research digests from all Credos delivered to your Telegram.</p>
+            <a href="https://t.me/+CoeJ9e4vZx45Y2Qy" target="_blank" rel="noopener noreferrer">Subscribe via Telegram →</a>
+        </div>
+
+        <!-- Affiliate Disclosure -->
+        <div class="disclosure">
+            <p>📌 This article may contain affiliate links. As an affiliate, I may earn from qualifying purchases. All recommendations are independently evaluated.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Creed Collective. <a href="/blog/">Blog</a> • <a href="/newsletter/">Newsletter</a> • <a href="/sponsors">Sponsors</a>. Faceless knowledge, delivered.</p>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById('theme-toggle');
+      toggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        toggle.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+      });
+    </script>
+</body>
+</html>

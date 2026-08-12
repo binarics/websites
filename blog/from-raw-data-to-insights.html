@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 From Raw Data to Insights — DataCredo Blog</title>
+    <meta name="description" content="">
+    <meta name="author" content="Creed Collective">
+    <meta name="theme-color" content="#0ea5e9">
+    <meta name="color-scheme" content="light dark">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://creed-collective.vercel.app/blog/from-raw-data-to-insights.html">
+    <meta property="og:title" content="From Raw Data to Insights">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://creed-collective.vercel.app/og-image.png">
+    <meta property="og:url" content="https://creed-collective.vercel.app/blog/from-raw-data-to-insights.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-08-12T11:33:42">
+    <meta name="twitter:card" content="summary_large_image">
+    <script>
+      window.__vercel_analytics = window.__vercel_analytics || {};
+      window.__vercel_analytics.token = 'va_3d0e4d8e0e4d82b2e0e4d8e0e4d8e0e4';
+    </script>
+    <script async src="https://cdn.vercel-analytics.com/script.js"></script>
+    <script>
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+    <style>
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: hsl(var(--c-bg));
+            color: hsl(var(--c-text));
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-size: 16px;
+        }
+        :root {
+            --c-bg: 0 0% 100%;
+            --c-bg-alt: 222.2 84% 98%;
+            --c-bg-card: 0 0% 100%;
+            --c-text: 222.8 8.9% 13.3%;
+            --c-text-muted: 215.4 15.3% 36.1%;
+            --c-text-dim: 215.4 15.3% 55%;
+            --c-border: 214.3 31.8% 94.1%;
+            --c-border-alt: 214.3 31.8% 91.2%;
+            --c-accent: #0ea5e9;
+            --c-accent-hover: #0284c7;
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.07);
+            --radius: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-full: 9999px;
+            --transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+        }
+        .dark {
+            --c-bg: 222.8 8.9% 13.3%;
+            --c-bg-alt: 222.8 8.9% 10%;
+            --c-bg-card: 222.8 8.9% 17.8%;
+            --c-text: 0 0% 100%;
+            --c-text-muted: 215.4 15.3% 55%;
+            --c-border: 215.4 15.3% 25.3%;
+            --c-border-alt: 215.4 15.3% 21.8%;
+        }
+        --gradient: linear-gradient(135deg, #0ea5e9 0%, #0284c7 50%, #059669 100%);
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+        header {
+            position: sticky; top: 0; z-index: 100;
+            background: hsl(var(--c-bg-card) / 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid hsl(var(--c-border));
+        }
+        .header-container {
+            height: 4rem; display: flex;
+            align-items: center; justify-content: space-between;
+        }
+        .logo {
+            display: flex; align-items: center; gap: 0.75rem;
+            font-size: 1.125rem; font-weight: 700;
+            text-decoration: none; color: hsl(var(--c-text));
+        }
+        .logo .mark {
+            width: 2rem; height: 2rem; border-radius: 0.375rem;
+            background: linear-gradient(135deg, var(--c-accent), #7c3aed);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.25rem;
+        }
+        nav { display: flex; align-items: center; gap: 2rem; }
+        nav a {
+            color: hsl(var(--c-text-muted));
+            text-decoration: none; font-size: 0.9rem;
+            font-weight: 500; transition: var(--transition);
+            position: relative;
+        }
+        nav a:hover { color: hsl(var(--c-text)); }
+        nav a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 100%; height: 2px;
+            background: var(--c-accent);
+            transform: scaleX(0); transform-origin: right;
+            transition: var(--transition);
+        }
+        nav a:hover::after { transform: scaleX(1); transform-origin: left; }
+        .theme-toggle {
+            background: hsl(var(--c-bg-alt));
+            border: 1px solid hsl(var(--c-border));
+            border-radius: var(--radius-full);
+            width: 2.5rem; height: 2.5rem;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: var(--transition);
+        }
+        .theme-toggle:hover { background: hsl(var(--c-border)); }
+
+        .blog-hero {
+            text-align: center; padding: 4rem 1.5rem;
+            background: var(--gradient); color: white;
+        }
+        .blog-hero h1 {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 800; margin-bottom: 1rem;
+        }
+        .blog-hero .meta {
+            display: flex; align-items: center; gap: 1rem;
+            justify-content: center; opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        .blog-hero .meta .badge {
+            background: rgba(0,0,0,0.2);
+            padding: 0.2rem 0.75rem; border-radius: var(--radius-full);
+            font-size: 0.8rem;
+        }
+        .blog-content {
+            max-width: 800px; margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        .blog-content h1 { color: var(--c-accent); margin: 1rem 0; font-size: 1.5rem; }
+        .blog-content h2 { color: var(--c-accent); margin: 1.5rem 0 0.75rem; border-bottom: 2px solid var(--c-border); padding-bottom: 0.25rem; }
+        .blog-content h3 { color: var(--c-text); margin: 1rem 0 0.5rem; font-weight: 600; }
+        .blog-content p { margin: 1rem 0; }
+        .blog-content ul { padding-left: 1.5rem; margin: 0.75rem 0; }
+        .blog-content li { margin-bottom: 0.3rem; }
+        .blog-content a { color: var(--c-accent); }
+        .blog-content code {
+            background: #F3F4F6; padding: 0.125rem 0.375rem;
+            border-radius: 4px; font-size: 0.9em;
+            font-family: 'Fira Code', 'Fira Mono', 'Courier New', monospace;
+        }
+        .blog-content pre {
+            background: #1F2937; color: #F9FAFB;
+            padding: 1rem; border-radius: var(--radius-lg);
+            overflow-x: auto; margin: 1rem 0;
+        }
+        .blog-content pre code {
+            background: none; padding: 0; font-size: 0.85em;
+        }
+        .blog-content blockquote {
+            border-left: 3px solid var(--c-accent);
+            padding: 1rem 1.5rem; margin: 1.5rem 0;
+            background: hsl(var(--c-bg-alt)); font-style: italic;
+        }
+        .blog-content img {
+            max-width: 100%; height: auto;
+            border-radius: var(--radius-lg); margin: 1rem 0;
+        }
+        .blog-content table {
+            width: 100%; border-collapse: collapse; margin: 1rem 0;
+        }
+        .blog-content th, .blog-content td {
+            border: 1px solid var(--c-border);
+            padding: 0.5rem; text-align: left;
+        }
+        .blog-content th { background: hsl(var(--c-bg-alt)); }
+        .social-sharing {
+            max-width: 800px; margin: 3rem auto; text-align: center;
+        }
+        .social-sharing .buttons {
+            display: flex; gap: 1rem; justify-content: center;
+            flex-wrap: wrap; margin-top: 1rem;
+        }
+        .social-sharing a {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.5rem 1rem; border-radius: var(--radius-full);
+            text-decoration: none; font-size: 0.85rem; font-weight: 500;
+            transition: var(--transition);
+        }
+        .subscribe-cta {
+            text-align: center; margin: 4rem 0; padding: 3rem;
+            background: linear-gradient(135deg, var(--c-accent), var(--c-accent-hover));
+            border-radius: var(--radius-xl); color: #ffffff;
+        }
+        .subscribe-cta a {
+            background: #ffffff; color: var(--c-accent);
+            padding: 0.75rem 2rem; border-radius: var(--radius-full);
+            text-decoration: none; font-weight: 600; margin-top: 1rem;
+            display: inline-block;
+        }
+        .disclosure {
+            text-align: center; margin-top: 3rem; padding: 1rem;
+            border-top: 1px solid var(--c-border);
+        }
+        .disclosure p {
+            font-size: 0.75rem; color: hsl(var(--c-text-muted));
+        }
+        footer {
+            border-top: 1px solid var(--c-border);
+            padding: 2rem 0; text-align: center;
+            color: hsl(var(--c-text-muted)); font-size: 0.85rem;
+        }
+        footer a { color: var(--c-accent); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <a href="/" class="logo"><span class="mark">🏛️</span> Creed Collective</a>
+                <nav>
+                    <a href="/">Home</a>
+                    <a href="/techcredo">TechCredo</a>
+                    <a href="/muslimcredo">MuslimCredo</a>
+                    <a href="/datacredo">DataCredo</a>
+                    <a href="/designcredo">DesignCredo</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/newsletter/">Newsletter</a>
+                    <a href="/sponsors">Sponsors</a>
+                    <a href="https://t.me/+CoeJ9e4vZx45Y2Qy" target="_blank" rel="noopener noreferrer">Telegram</a>
+                    <button class="theme-toggle" id="theme-toggle">🌙</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="blog-hero" style="background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 50%, #059669 100%);">
+        <div class="container">
+            <div class="meta">
+                <span class="badge">📊 DataCredo</span>
+                <span role="img">📅 2026-08-12</span>
+            </div>
+            <h1>From Raw Data to Insights</h1>
+            <p class="subtitle" style="font-size: 1.25rem; font-weight: 300; max-width: 640px; margin: 0 auto 2rem;"></p>
+        </div>
+    </section>
+
+    <main>
+        <div class="blog-content">
+<h1>From Raw Data to Insights</h1>
+<p>The journey from raw data to actionable insights involves multiple stages: collection, cleaning, analysis, and visualization. This guide covers modern workflows for data science teams.</p>
+<h2>The Data Science Workflow</h2>
+<h3>1. Data Collection</h3>
+<p>Modern data science relies on diverse sources:</p>
+<ul>
+<li><strong>APIs</strong> — REST, GraphQL, streaming</li>
+<li><strong>Web Scraping</strong> — public datasets, research papers</li>
+<li><strong>Databases</strong> — SQL, NoSQL, data warehouses</li>
+</ul>
+<h3>2. Data Cleaning</h3>
+<blockquote>**Pro Tip**: Spend 80% of your time cleaning data. Automate with pandas or polars.</blockquote>
+<pre><code class="language-import pandas as pd">
+
+df = pd.read_csv('data.csv')
+df = df.dropna()
+df['date'] = pd.to_datetime(df['date'])
+df = df.groupby('date').agg({'value': 'mean'})
+</code></pre>
+<h3>3. Analysis</h3>
+<p>Use tools like:</p>
+<ul>
+<li><strong>Papers with Code</strong> — latest ML research implementations</li>
+<li><strong>TradingAgents</strong> — multi-agent financial analysis</li>
+<li><strong>Semantic Scholar API</strong> — research paper metadata</li>
+</ul>
+<h2>Visualization Best Practices</h2>
+<h3>Tableau for Dashboards</h3>
+<p>Tableau remains the gold standard for interactive dashboards. Key tips:</p>
+<p>1. Use color purposefully (one accent color per dashboard)</p>
+<p>2. Prioritize data density over whitespace</p>
+<p>3. Include drill-down capabilities</p>
+<h3>Python Visualization Stack</h3>
+<ul>
+<li><strong>Matplotlib</strong> — base plotting</li>
+<li><strong>Seaborn</strong> — statistical visualizations</li>
+<li><strong>Plotly</strong> — interactive charts</li>
+<li><strong>Streamlit</strong> — quick dashboard deployment</li>
+</ul>
+<h2>Modern Tools Ecosystem</h2>
+<h3>ComfyUI for Data Visualization</h3>
+<p>ComfyUI isn't just for images — its node-based workflow can orchestrate data pipelines:</p>
+<ul>
+<li>Data ingestion nodes</li>
+<li>Transformation nodes</li>
+<li>Export nodes</li>
+</ul>
+<p><strong>Sponsored Tool</strong>: <a href="https://databricks.com">Databricks</a> offers a unified platform for data engineering, science, and ML.</p>
+<h2>Recommended Resources</h2>
+<ul>
+<li><strong>Book</strong>: *Python for Data Analysis* by Wes McKinney</li>
+<li><strong>Course</strong>: *Data Visualization* on Coursera</li>
+<li><strong>Tool</strong>: <a href="https://paperswithcode.com">Papers with Code</a> — SOTA ML implementations</li>
+</ul>
+<p><em>As an affiliate, I may earn from qualifying purchases. All tools are independently evaluated.</em></p>
+        </div>
+
+
+        <div class="social-sharing">
+            <p style="color: hsl(var(--c-text-muted)); font-size: 0.9rem;">Share this article:</p>
+            <div class="buttons">
+                <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fcreed-collective.vercel.app%2Fblog%2Ffrom-raw-data-to-insights.html&text=From%20Raw%20Data%20to%20Insights%20%E2%80%94%20DataCredo%20Blog" target="_blank" rel="noopener noreferrer" style="background: #1DA1F2; color: #ffffff;">🐦 X / Twitter</a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fcreed-collective.vercel.app%2Fblog%2Ffrom-raw-data-to-insights.html" target="_blank" rel="noopener noreferrer" style="background: #0A66C2; color: #ffffff;">💼 LinkedIn</a>
+                <a href="https://t.me/share/url?url=https%3A%2F%2Fcreed-collective.vercel.app%2Fblog%2Ffrom-raw-data-to-insights.html&text=From%20Raw%20Data%20to%20Insights%20%E2%80%94%20DataCredo%20Blog" target="_blank" rel="noopener noreferrer" style="background: #0088CC; color: #ffffff;">✈️ Telegram</a>
+            </div>
+        </div>
+
+        <!-- Subscribe CTA -->
+        <div class="subscribe-cta">
+            <h2>📬 Join the Creed Collective</h2>
+            <p>Get weekly research digests from all Credos delivered to your Telegram.</p>
+            <a href="https://t.me/+CoeJ9e4vZx45Y2Qy" target="_blank" rel="noopener noreferrer">Subscribe via Telegram →</a>
+        </div>
+
+        <!-- Affiliate Disclosure -->
+        <div class="disclosure">
+            <p>📌 This article may contain affiliate links. As an affiliate, I may earn from qualifying purchases. All recommendations are independently evaluated.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Creed Collective. <a href="/blog/">Blog</a> • <a href="/newsletter/">Newsletter</a> • <a href="/sponsors">Sponsors</a>. Faceless knowledge, delivered.</p>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById('theme-toggle');
+      toggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        toggle.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+      });
+    </script>
+</body>
+</html>
