@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>📊 DataCredo Newsletter - Creed Collective</title>
-    <meta name="description" content="DataCredo weekly newsletter. Data science, analytics, visualization, and ML workflows">
-    <meta name="theme_color" content="#0ea5e9">
+    <meta name="description" content="Data science, analytics, visualization, and ML workflows. Weekly newsletter from Creed Collective.">
+    <meta name="theme-color" content="#0ea5e9">
     <meta name="color-scheme" content="light dark">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <!-- Vercel Analytics -->
@@ -45,6 +45,7 @@
             --c-primary-foreground: 0 0% 100%;
             --c-accent: #0ea5e9;
             --c-accent-hover: #0284c7;
+            --c-accent-foreground: 0 0% 100%;
             --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.03);
             --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.07);
             --radius-sm: 0.375rem;
@@ -54,7 +55,6 @@
             --radius-full: 9999px;
             --transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
         }
-
         .dark {
             --c-bg: 222.8 8.9% 13.3%;
             --c-bg-alt: 222.8 8.9% 10%;
@@ -123,7 +123,7 @@
         }
         .newsletter-meta h1 {
             font-size: clamp(1.75rem, 3vw, 2.5rem);
-            font-weight: 800;
+            font-weight: 800; margin-bottom: 1rem;
         }
         .newsletter-meta p { opacity: 0.9; font-size: 1.1rem; }
         .newsletter-content {
@@ -137,7 +137,7 @@
         .newsletter-content h2 {
             color: var(--c-accent);
             margin: 1.25rem 0 0.5rem;
-            border-bottom: 2px solid var(--c-accent);
+            border-bottom: 2px solid var(--c-border);
             padding-bottom: 0.25rem;
             font-size: 1.25rem;
         }
@@ -181,15 +181,15 @@
         .subscribe-box {
             text-align: center; margin: 3rem 0;
             padding: 3rem;
-            background: var(--gradient);
+            background: var(--c-accent-gradient, linear-gradient(135deg, var(--c-accent), var(--c-accent-hover)));
             border-radius: var(--radius-xl);
-            color: white;
+            color: var(--c-primary-foreground);
         }
         .subscribe-box h2 {
             font-size: 1.5rem; margin-bottom: 1rem;
         }
         .subscribe-box a {
-            background: white; color: var(--c-accent);
+            background: #ffffff; color: var(--c-accent);
             padding: 0.75rem 2rem;
             border-radius: var(--radius-full);
             text-decoration: none; font-weight: 600;
@@ -200,10 +200,14 @@
             transform: translateY(-1px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
+        .newsletter-meta .subtitle {
+            font-size: 1.25rem; font-weight: 300;
+            max-width: 640px; margin: 0 auto 2rem;
+        }
         footer {
             border-top: 1px solid var(--c-border);
             padding: 2rem 0; text-align: center;
-            color: var(--c-text-muted); font-size: 0.85rem;
+            color: hsl(var(--c-text-muted)); font-size: 0.85rem;
         }
         footer a { color: var(--c-accent); text-decoration: none; }
         footer a:hover { text-decoration: underline; }
@@ -222,22 +226,27 @@
                     <a href="/datacredo">DataCredo</a>
                     <a href="/designcredo">DesignCredo</a>
                     <a href="/newsletter/">Newsletter</a>
-                    <a href="https://t.me/+CoeJ9e4vZx45Y2Qy" target="_blank">Telegram</a>
+                    <a href="https://t.me/+CoeJ9e4vZx45Y2Qy" target="_blank" rel="noopener noreferrer">Telegram</a>
                     <button class="theme-toggle" id="theme-toggle">🌙</button>
                 </nav>
             </div>
         </div>
     </header>
 
-    <div class="newsletter-meta">
+    <section class="newsletter-meta">
         <div class="container">
-            <h1>📊 DataCredo Weekly</h1>
-            <p>Data science, analytics, visualization, and ML workflows</p>
-            <p>📅 August 12, 2026</p>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="font-size: 3rem;">📊</span>
+                <span style="font-size: 1.75rem; font-weight: 700;">DataCredo</span>
+            </div>
+            <h1>Weekly Dispatch</h1>
+            <p class="subtitle">Data science, analytics, visualization, and ML workflows</p>
+            <p style="opacity: 0.8;" role="img">August 12, 2026</p>
         </div>
-    </div>
+    </section>
 
-    <div class="newsletter-content">
+    <main>
+        <div class="newsletter-content">
 <p>📊 DATACREDO · DATA INSIGHTS FOR DECISION MAKERS</p>
 <p>============================================================</p>
 <p>DataCredo Digest — Data Science Insights</p>
@@ -294,21 +303,23 @@
 <p><em>CREDO COLLECTIVE</em></p>
 <p>DataCredo · Data science, analytics, visualization, and ML workflows</p>
 <p>Read more: creed-collective.com/newsletter/datacredo_newsletter</p>
-    </div>
+        </div>
 
-    <div class="subscribe-box">
-        <h2>📬 Subscribe to DataCredo Weekly</h2>
-        <p>Get curated research, tools, and insights delivered to your inbox every week.</p>
-        <a href="https://t.me/+CoeJ9e4vZx45Y2Qy">Subscribe via Telegram</a>
-    </div>
+        <!-- Subscribe CTA -->
+        <div class="subscribe-box" style="max-width: 800px; margin: 3rem auto;">
+            <h2>📬 Join the Creed Collective</h2>
+            <p>Get weekly research digests from all Credos delivered to your Telegram.</p>
+            <a href="https://t.me/+CoeJ9e4vZx45Y2Qy" target="_blank" rel="noopener noreferrer">Subscribe via Telegram →</a>
+        </div>
+    </main>
 
     <footer>
-        <p>© 2026 Creed Collective. Faceless knowledge, delivered.</p>
+        <p>© 2026 Creed Collective. <a href="https://t.me/+CoeJ9e4vZx45Y2Qy" target="_blank" rel="noopener noreferrer">Subscribe via Telegram</a>. Faceless knowledge, delivered.</p>
     </footer>
 
     <script>
       const toggle = document.getElementById('theme-toggle');
-      toggle.addEventListener('click', () => {
+      toggle.addEventListener('click', function() {
         document.documentElement.classList.toggle('dark');
         localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
         toggle.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
