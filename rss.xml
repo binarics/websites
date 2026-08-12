@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Creed Collective</title>
+    <link>https://creed-collective.vercel.app/</link>
+    <description>Faceless knowledge lifestyle brand network covering AI, Islamic psychology, data science, and design — fully automated.</description>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Aug 2026 12:00:00 +0000</lastBuildDate>
+    <atom:link href="https://creed-collective.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <url>https://creed-collective.vercel.app/favicon.ico</url>
+      <title>Creed Collective</title>
+      <link>https://creed-collective.vercel.app/</link>
+    </image>
+    <item>
+      <title>📊 From Raw Data to Insights — DataCredo Blog</title>
+      <description></description>
+      <link>https://creed-collective.vercel.app/blog/from-raw-data-to-insights</link>
+      <guid isPermaLink="false">https://creed-collective.vercel.app/blog/from-raw-data-to-insights</guid>
+    </item>
+    <item>
+      <title>🕌 Faith and Psychology Integration — MuslimCredo Blog</title>
+      <description></description>
+      <link>https://creed-collective.vercel.app/blog/faith-and-psychology-integration</link>
+      <guid isPermaLink="false">https://creed-collective.vercel.app/blog/faith-and-psychology-integration</guid>
+    </item>
+    <item>
+      <title>🎨 Design Systems at Scale — DesignCredo Blog</title>
+      <description></description>
+      <link>https://creed-collective.vercel.app/blog/design-systems-at-scale</link>
+      <guid isPermaLink="false">https://creed-collective.vercel.app/blog/design-systems-at-scale</guid>
+    </item>
+    <item>
+      <title>💻 Building Your First AI Agent Team — TechCredo Blog</title>
+      <description></description>
+      <link>https://creed-collective.vercel.app/blog/building-your-first-ai-agent-team</link>
+      <guid isPermaLink="false">https://creed-collective.vercel.app/blog/building-your-first-ai-agent-team</guid>
+    </item>
+    <item>
+      <title>💻 TechCredo Newsletter - Creed Collective</title>
+      <description>AI, automation, data tools, and productivity for developers. Weekly newsletter from Creed Collective.</description>
+      <link>https://creed-collective.vercel.app/newsletter/techcredo_newsletter_20260812_161048.html</link>
+      <guid isPermaLink="false">https://creed-collective.vercel.app/newsletter/techcredo_newsletter_20260812_161048.html</guid>
+    </item>
+    <item>
+      <title>🕌 MuslimCredo Newsletter - Creed Collective</title>
+      <description>Islamic psychology, mental health, and spiritual wellness. Weekly newsletter from Creed Collective.</description>
+      <link>https://creed-collective.vercel.app/newsletter/muslimcredo_newsletter_20260812_161048.html</link>
+      <guid isPermaLink="false">https://creed-collective.vercel.app/newsletter/muslimcredo_newsletter_20260812_161048.html</guid>
+    </item>
+    <item>
+      <title>🎨 DesignCredo Newsletter - Creed Collective</title>
+      <description>UX/UI design, creative tools, accessibility, and web aesthetics. Weekly newsletter from Creed Collective.</description>
+      <link>https://creed-collective.vercel.app/newsletter/designcredo_newsletter_20260812_161048.html</link>
+      <guid isPermaLink="false">https://creed-collective.vercel.app/newsletter/designcredo_newsletter_20260812_161048.html</guid>
+    </item>
+    <item>
+      <title>📊 DataCredo Newsletter - Creed Collective</title>
+      <description>Data science, analytics, visualization, and ML workflows. Weekly newsletter from Creed Collective.</description>
+      <link>https://creed-collective.vercel.app/newsletter/datacredo_newsletter_20260812_161048.html</link>
+      <guid isPermaLink="false">https://creed-collective.vercel.app/newsletter/datacredo_newsletter_20260812_161048.html</guid>
+    </item>
+  </channel>
+</rss>
